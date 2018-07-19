@@ -1,3 +1,6 @@
+
+
+
 //
 //  DetailViewController.m
 //  NavChange
@@ -17,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"导航栏渐变";
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

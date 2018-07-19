@@ -15,6 +15,7 @@
 		4AF7A32E20E2218800853FAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7A32D20E2218800853FAF /* main.m */; };
 		4AF7A33820E2218800853FAF /* NavChangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7A33720E2218800853FAF /* NavChangeTests.m */; };
 		4AF7A34320E2218800853FAF /* NavChangeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7A34220E2218800853FAF /* NavChangeUITests.m */; };
+		4AF7A35220E231E800853FAF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7A35120E231E800853FAF /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		4AF7A33E20E2218800853FAF /* NavChangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavChangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF7A34220E2218800853FAF /* NavChangeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavChangeUITests.m; sourceTree = "<group>"; };
 		4AF7A34420E2218800853FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF7A35020E231E800853FAF /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4AF7A35120E231E800853FAF /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				4AF7A31F20E2218600853FAF /* AppDelegate.m */,
 				4AF7A32120E2218600853FAF /* ViewController.h */,
 				4AF7A32220E2218600853FAF /* ViewController.m */,
+				4AF7A35020E231E800853FAF /* DetailViewController.h */,
+				4AF7A35120E231E800853FAF /* DetailViewController.m */,
 				4AF7A32420E2218600853FAF /* Main.storyboard */,
 				4AF7A32720E2218800853FAF /* Assets.xcassets */,
 				4AF7A32920E2218800853FAF /* LaunchScreen.storyboard */,
@@ -265,6 +270,7 @@
 				4AF7A32320E2218600853FAF /* ViewController.m in Sources */,
 				4AF7A32E20E2218800853FAF /* main.m in Sources */,
 				4AF7A32020E2218600853FAF /* AppDelegate.m in Sources */,
+				4AF7A35220E231E800853FAF /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
