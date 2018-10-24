@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate> {
+    
+    CGFloat alpha;
+}
 
 @property(nonatomic,strong) UITableView *tableView;
 @end
@@ -38,16 +41,37 @@
     
     //2.设置导航栏ImageView的子视图的透明度，此方法可以在scrollView代理方法中改变alpha 可动态改变！
     //因ios11导航栏的层级结构有所变化，故作出判断。
-    if (@available(iOS 11.0, *)) {
-        [[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:1].alpha = 0;
-
-        [[[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:0] setHidden:YES];
-    }else {
-
-        self.navigationController.navigationBar.subviews.firstObject.alpha = 0;
+    
+    
+    if (alpha > 0) {
+        
+        self.navigationItem.title = @"导航栏渐变";
+        
+        if (@available(iOS 11.0, *)) {
+            [[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:1].alpha = alpha;
+            [[[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:0] setHidden:YES];
+        } else {
+            
+            self.navigationController.navigationBar.subviews.firstObject.alpha = alpha;
+        }
+        
+    } else {
+        
+        self.navigationItem.title = @"";
+        
+        if (@available(iOS 11.0, *)) {
+            [[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:1].alpha = 0;
+            
+            [[[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:0] setHidden:YES];
+        }else {
+            
+            self.navigationController.navigationBar.subviews.firstObject.alpha = 0;
+        }
+        
     }
 
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
@@ -61,11 +85,12 @@
         self.navigationController.navigationBar.subviews.firstObject.alpha = 1;
     }
     
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 20;
+    return 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,9 +114,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat minAlphaOffset = -64;
-    CGFloat maxAlphaOffset = 500;
+    CGFloat maxAlphaOffset = 100;
     CGFloat offset = scrollView.contentOffset.y;
-    CGFloat alpha = (offset - minAlphaOffset)/(maxAlphaOffset-minAlphaOffset);
+    alpha = (offset - minAlphaOffset)/(maxAlphaOffset-minAlphaOffset);
     
     if (@available(iOS 11.0, *)) {
         [[[[self.navigationController.navigationBar subviews] objectAtIndex:0] subviews] objectAtIndex:1].alpha = alpha;
@@ -100,6 +125,7 @@
         
         self.navigationController.navigationBar.subviews.firstObject.alpha = alpha;
     }
+    
     if (alpha > 0) {
         
        self.navigationItem.title = @"导航栏渐变";
